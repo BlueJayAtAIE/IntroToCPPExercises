@@ -200,7 +200,7 @@ void smallestOfNumbers()
 	cout << "The smallest of the input numbers is " << numberToCompare << "." << endl;
 }
 
-void EvenOrOdd()
+void evenOrOdd()
 {
 	int val;
 
@@ -219,6 +219,100 @@ void EvenOrOdd()
 	{
 		cout << "I don't know how you were able to see this." << endl;
 	}
+}
+
+void from100To1()
+{
+	int i = 100;
+	while (i > 0)
+	{
+		cout << i << endl;
+		i--;
+	}
+}
+
+void forAllLeapYears()
+{
+	for (int i = 0; i <= 3000; i++)
+	{
+		if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0)
+		{
+			cout << i << endl;
+		}
+	}
+}
+
+void from1995To2019()
+{
+	int val = 1995;
+
+	do
+	{
+		cout << val << endl;
+		val++;
+	} while (val <= 2019);
+}
+
+void multiplesOf5()
+{
+	int startingMultiple, endingMultiple = 0;
+
+	cout << "Enter a starting point." << endl;
+	cin >> startingMultiple;
+
+	cout << "Enter an ending point." << endl;
+	cin >> endingMultiple;
+	cout << endl;
+
+	for (int i = startingMultiple; i <= endingMultiple; i++)
+	{
+		cout << i * 5 << endl;
+	}
+}
+
+void numberClamp()
+{
+
+}
+
+void calculator()
+{
+
+}
+
+void dinosaurBattle()
+{
+
+}
+
+void largestOfNumbers()
+{
+
+}
+
+void evenOrOddAlt()
+{
+
+}
+
+void fizzBuzz()
+{
+
+}
+
+void gridGenerator()
+{
+
+}
+
+void higherOrLower()
+{
+
+}
+
+void pyramidGenerator()
+{
+
 }
 
 int main()
@@ -247,8 +341,19 @@ int main()
 			cout << "    H: Age Gate" << endl;
 			cout << "    I: Smallest Given Number" << endl;
 			cout << "    J: Even or Odd" << endl;
-			cout << "    K: " << endl;
-			cout << "    L: " << endl;
+			cout << "    K: From 100 to 1" << endl;
+			cout << "    L: For All Leap Years" << endl;
+			cout << "    M: From 1995 to 2019" << endl;
+			cout << "    N: Printing Multiples of Five" << endl;
+			cout << "    O: Clamp the Number" << endl;
+			cout << "    P: Function Disposable Calculator" << endl;
+			cout << "    Q: Dino Discourse" << endl;
+			cout << "    R: Largest Given Number" << endl;
+			cout << "    S: Even or Odd 2: Electric Boogaloo" << endl;
+			cout << "    T: Fizz Buzz" << endl;
+			cout << "    U: Grid Generator" << endl;
+			cout << "    V: Higher or Lower" << endl;
+			cout << "    W: Pyramid Generator" << endl;
 			break;
 		case 'a':
 		case 'A':
@@ -288,7 +393,59 @@ int main()
 			break;
 		case 'j':
 		case 'J':
-			EvenOrOdd();
+			evenOrOdd();
+			break;
+		case 'k':
+		case 'K':
+			from100To1();
+			break;
+		case 'l':
+		case 'L':
+			forAllLeapYears();
+			break;
+		case 'm':
+		case 'M':
+			from1995To2019();
+			break;
+		case 'n':
+		case 'N':
+			multiplesOf5();
+			break;
+		case 'o':
+		case 'O':
+			numberClamp();
+			break;
+		case 'p':
+		case 'P':
+			calculator();
+			break;
+		case 'q':
+		case 'Q':
+			dinosaurBattle();
+			break;
+		case 'r':
+		case 'R':
+			largestOfNumbers();
+			break;
+		case 's':
+		case 'S':
+			evenOrOddAlt();
+			break;
+		case 't':
+		case 'T':
+			fizzBuzz();
+			break;
+		case 'u':
+		case 'U':
+			gridGenerator();
+			break;
+		case 'v':
+		case 'V':
+			higherOrLower();
+			break;
+		case 'w':
+		case 'W':
+			pyramidGenerator();
 			break;
 		default:
 			cout << "Unrecognized command." << endl;
