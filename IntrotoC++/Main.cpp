@@ -1,4 +1,5 @@
 #include <iostream>
+#include "utils.h"
 using std::cout;
 using std::cin;
 using std::endl;
@@ -34,8 +35,8 @@ void finalForm()
 
 void celsToFahren()
 {
-	float degCelsius;
-	float degFahrenheit;
+	float degCelsius = 0;
+	float degFahrenheit = 0;
 
 	cout << "Celsius to Fahrenheit) Enter a temperature in Celsius." << endl;
 	cin >> degCelsius;
@@ -93,7 +94,7 @@ void averageOfFive()
 
 void numberSwap()
 {
-	int x, y, temp = 0;
+	int x = 0, y = 0, temp = 0;
 
 	cout << "Number Swap) Enter a value for X." << endl;
 	cin >> x;
@@ -172,13 +173,15 @@ void smallestOfNumbers()
 	int numberToCompare = INT16_MAX;
 	int numberAmount = 0;
 
-	cout << "Enter the number of numbers you want to input (if you pick 99 thats entirely on you)." << endl;
-	cin >> numberAmount;
-
 	while (numberAmount <= 0)
 	{
-		cout << "Woah woah woah you have to enter a positive number. Try again." << endl;
+		cout << "Enter the number of numbers you want to input (if you pick 99 thats entirely on you)." << endl;
 		cin >> numberAmount;
+
+		if (numberAmount <= 0)
+		{
+			cout << "Woah woah woah you have to enter a positive number. Try again." << endl;
+		}
 	}
 
 	cout << "Now enter the first number of your sequence." << endl;
@@ -255,7 +258,7 @@ void from1995To2019()
 
 void multiplesOf5()
 {
-	int startingMultiple, endingMultiple = 0;
+	int startingMultiple = 0, endingMultiple = 0;
 
 	cout << "Enter a starting point." << endl;
 	cin >> startingMultiple;
@@ -272,65 +275,397 @@ void multiplesOf5()
 
 void numberClamp()
 {
+	int val;
+	cout << "Enter a number. This number will be clamped between 15 and 30." << endl;
+	cin >> val;
 
+	if (val > 30)
+	{
+		val = 30;
+	}
+	if (val < 15)
+	{
+		val = 15;
+	}
+
+	cout << "The final value is " << val << "." << endl;
 }
 
 void calculator()
 {
-
+	// TODO
 }
 
 void dinosaurBattle()
 {
+	char userInputchar = '?';
+	int userInputint = 0, playerPoint = 0, dinoPoint = 0;
 
+	cout << "Now it's time for an ultimate test of strength............. For me. This exercise torments me." << endl << endl << "Anyways, fight this dinosaur." << endl;
+
+	cout << endl;
+	cout << "How would you rate your strength on a scale from 1-10?" << endl;
+	while (true)
+	{
+		cin >> userInputint;
+
+		if (userInputint == 4)
+		{
+			cout << "DRAW" << endl;
+			break;
+		}
+
+		if (userInputint > 10)
+		{
+			cout << "It CAN'T be GREATER THAN 10. Enter another number." << endl;
+		}
+		else if (userInputint > 4)
+		{
+			cout << "PLAYER POINT" << endl;
+			playerPoint++;
+			break;
+		}
+
+		if (userInputint < 1)
+		{
+			cout << "No no it CAN'T be LESS THAN 1- that'd be pretty sad. Enter another number." << endl;
+		}
+		else if (userInputint < 4)
+		{
+			cout << "DINO POINT" << endl;
+			dinoPoint++;
+			break;
+		}
+	}
+
+	cout << endl;
+	cout << "Which of the following did you take into battle?" << endl;
+	cout << "    [R]OCK" << endl;
+	cout << "    [P]APER" << endl;
+	cout << "    [S]CISSORS" << endl;
+	while (true)
+	{
+		cin >> userInputchar;
+
+		if (userInputchar != 'r' && userInputchar != 'p' && userInputchar != 's')
+		{
+			cout << "That's not a valid input. Try again." << endl;
+		}
+		else if (userInputchar == 'p')
+		{
+			cout << "DRAW" << endl;
+			break;
+		}
+		else if (userInputchar == 's')
+		{
+			cout << "PLAYER POINT" << endl;
+			playerPoint++;
+			break;
+		}
+		else
+		{
+			cout << "DINO POINT" << endl;
+			dinoPoint++;
+			break;
+		}
+	}
+
+	cout << endl;
+	cout << "How many battles have you fought?" << endl;
+	while (true)
+	{
+		cin >> userInputint;
+
+		if (userInputint < 0)
+		{
+			cout << "It's not possible to have fought negitive battles! Enter another number." << endl;
+		}
+		else if (userInputint == 2)
+		{
+			cout << "DRAW" << endl;
+			break;
+		}
+		else if (userInputint > 2)
+		{
+			cout << "PLAYER POINT" << endl;
+			playerPoint++;
+			break;
+		}
+		else if (userInputint < 2)
+		{
+			cout << "DINO POINT" << endl;
+			dinoPoint++;
+			break;
+		}
+	}
+
+	cout << endl;
+	cout << "Did you get enough sleep last night?" << endl;
+	cout << "    [Y]ES" << endl;
+	cout << "    [N]O" << endl;
+	while (true)
+	{
+		cin >> userInputchar;
+
+		if (userInputchar != 'y' && userInputchar != 'n')
+		{
+			cout << "That's not a valid answer! Try again." << endl;
+		}
+		else if (userInputchar == 'y')
+		{
+			//cout << "Oh- wow really? Nice. I certainly didn't it seems. "
+			cout << "PLAYER POINT" << endl;
+			playerPoint++;
+			break;
+		}
+		else
+		{
+			cout << "DINO POINT" << endl;
+			dinoPoint++;
+			break;
+		}
+	}
+
+	cout << endl;
+
+	if (playerPoint == dinoPoint)
+	{
+		cout << endl << "Woah- looks like you two are tied for points. Time for a SUDDEN DEATH." << endl << "How much Vitamin C do you get everyday?" << endl;
+		cin >> userInputint;
+
+		if (userInputint >= 75)
+		{
+			cout << "PLAYER POINT" << endl;
+			playerPoint++;
+		}
+		else
+		{
+			cout << "DINO POINT" << endl;
+			dinoPoint++;
+		}
+
+		cout << endl;
+	}
+
+	if (playerPoint > dinoPoint)
+	{
+		cout << "Winner is You" << endl;
+	}
+	else
+	{
+		cout << "You are eaten by a dinosaur." << endl;
+	}
+
+	cout << "FINAL SCORES: " << playerPoint << " PLAYER | " << dinoPoint << " DINO" << endl;
 }
 
 void largestOfNumbers()
 {
+	int val;
+	int numberToCompare = INT16_MIN;
+	int numberAmount = 0;
 
+	while (numberAmount <= 0)
+	{
+		cout << "Enter the number of numbers you want to input (if you pick 99 thats entirely on you)." << endl;
+		cin >> numberAmount;
+
+		if (numberAmount <= 0)
+		{
+			cout << "Woah woah woah you have to enter a positive number. Try again." << endl;
+		}
+	}
+
+	cout << "Now enter the first number of your sequence." << endl;
+	for (int i = 0; i < numberAmount; i++)
+	{
+		cin >> val;
+
+		if (val > numberToCompare)
+		{
+			numberToCompare = val;
+		}
+
+		if (i < numberAmount - 1)
+		{
+			cout << "Enter another number." << endl;
+		}
+	}
+
+	cout << "The largest of the input numbers is " << numberToCompare << "." << endl;
 }
 
 void evenOrOddAlt()
 {
+	int startingNumber = 0, endingNumber = 0;
+	cout << "Enter a number to act as a starting point." << endl;
+	cin >> startingNumber;
 
+	cout << "Enter a number to act as an ending point." << endl;
+	cin >> endingNumber;
+
+	if (startingNumber > endingNumber)
+	{
+		cout << "Flipping " << endingNumber << " to be the starting point." << endl;
+		int temp = startingNumber;
+		startingNumber = endingNumber;
+		endingNumber = temp;
+	}
+
+	for (int i = startingNumber; i <= endingNumber; i++)
+	{
+		if (i % 2 == 0)
+		{
+			cout << "Even" << endl;
+		}
+		if (i % 2 == 1 || 1 % 2 == -1)
+		{
+			cout << "Odd" << endl;
+		}
+	}
 }
 
 void fizzBuzz()
 {
+	int startingNumber = 0, endingNumber = 0;
+	cout << "Enter a number to act as a starting point." << endl;
+	cin >> startingNumber;
 
+	cout << "Enter a number to act as an ending point." << endl;
+	cin >> endingNumber;
+
+	if (startingNumber > endingNumber)
+	{
+		cout << "Flipping " << endingNumber << " to be the starting point." << endl;
+		int temp = startingNumber;
+		startingNumber = endingNumber;
+		endingNumber = temp;
+	}
+
+	for (int i = startingNumber; i <= endingNumber; i++)
+	{
+		if (i % 5 == 0 && i % 3 == 0)
+		{
+			cout << "FizzBuzz" << endl;
+		}
+		else if (i % 5 == 0)
+		{
+			cout << "Buzz" << endl;
+		}
+		else if (i % 3 == 0)
+		{
+			cout << "Fizz" << endl;
+		}
+		else
+		{
+			cout << i << endl;
+		}
+	}
 }
 
 void gridGenerator()
 {
+	int x = 0, y = 0;
 
+	cout << "Enter a number for the height of the grid." << endl;
+	cin >> x;
+
+	cout << "Enter a number for the width of the grid." << endl;
+	cin >> y;
+
+	cout << endl << "Printing a " << x << "x" << y << " grid." << endl;
+
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			cout << "x";
+		}
+		cout << endl;
+	}
 }
 
 void higherOrLower()
 {
+	int toGuess = 0, userGuess = 0;
+	toGuess = rand() % 10 + 1;
 
+	cout << "I've got a random number here thats between 1-10. Try to guess it in 5 turns." << endl << endl;
+	for (int i = 1; i <= 5; i++)
+	{
+		cout << "Round " << i << " - Make your guess." << endl;
+		cin >> userGuess;
+
+		if (userGuess == toGuess)
+		{
+			cout << "Congradtions, You Done It." << endl;
+			return;
+		}
+		if (userGuess < toGuess)
+		{
+			cout << "Too Low" << endl;
+			if (userGuess < 1)
+			{
+				cout << "Also the number won't be lower than 1..." << endl;
+			}
+		}
+		if (userGuess > toGuess)
+		{
+			cout << "Too High" << endl;
+			if (userGuess > 10)
+			{
+				cout << "Also the number won't be higher than 10..." << endl;
+			}
+		}
+	}
+
+	cout << "Aw bummer you didn't guess it right." << endl;
 }
 
 void pyramidGenerator()
 {
+	// TODO
 
+	int x = 0, y = 0;
+
+	cout << "Enter a number that will be the amount of levels of pyramid has." << endl;
+	cin >> x;
+
+	cout << "Enter a number that will be the width of each level of the pyramid." << endl;
+	cin >> y;
+
+	for (int i = 0; i < x; i++)
+	{
+		
+		int print = (y * (i * 2)) * 2;
+		
+		for (int k = 0; k < print; k++)
+		{
+			cout << "x";
+		}
+
+		cout << endl;
+	}
 }
 
 int main()
 {
 	char userInput = '?';
-	while (!(userInput == '!')) 
+	while (userInput != '!') 
 	{
 		userInput = '?';
-		cout << "Enter a character to see an exercise. Enter '?' for a directory. " << endl;
+		cout << "Enter a character to see an exercise. Enter '?' for a directory. Press '!' to close." << endl;
 		cin >> userInput;
 		cout << endl;
 
 		switch (userInput)
 		{
 		case '!':
+			cout << "Bye bye!" << endl;
 			break;
 		case '?':
 			cout << "Directory:" << endl;
+			cout << "    VARIABLES AND OPERATORS ---------" << endl;
 			cout << "    A: Final Form" << endl;
 			cout << "    B: Temperature Converter" << endl;
 			cout << "    C: Area of a Rectangle" << endl;
@@ -340,6 +675,7 @@ int main()
 			cout << "    G: From 1 to 100" << endl;
 			cout << "    H: Age Gate" << endl;
 			cout << "    I: Smallest Given Number" << endl;
+			cout  << endl << "    CONDITIONALS AND LOOPS ----------" << endl;
 			cout << "    J: Even or Odd" << endl;
 			cout << "    K: From 100 to 1" << endl;
 			cout << "    L: For All Leap Years" << endl;
