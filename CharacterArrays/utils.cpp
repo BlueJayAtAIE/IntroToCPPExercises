@@ -120,7 +120,7 @@ void stringReverse(char array[])
 
 }
 
-bool palindrone()
+bool palindrome()
 {
 	return true;
 }

@@ -78,6 +78,10 @@ bool arrayUnique(int numbers[], size_t size)
 	for (size_t i = 0; i < size; i++)
 	{
 		result = countElement(numbers, size, numbers[i], 0) > 1 ? false : true;
+		if (!result)
+		{
+			break;
+		}
 	}
 
 	return result;

@@ -61,3 +61,12 @@ float distance(float x1, float y1, float x2, float y2)
 	// TODO
 	return 0;
 }
+
+float ETA(float x1, float y1, float x2, float y2, float speed)
+{
+	float seconds = 0;
+	// TODO. Finish distance, then use it here.
+	// Find distance, then from it subtract speed for as many itterations as it takes until it gets to >= 0.
+	// The "seconds" float will be set to the amount of itterations it takes to do this.
+	return seconds;
+}

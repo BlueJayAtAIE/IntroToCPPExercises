@@ -13,6 +13,6 @@ void substring(char array[], size_t start, size_t end);
 
 void stringReverse(char array[]);
 
-bool palindrone();
+bool palindrome();
 
 int stringLength(char array[]);
