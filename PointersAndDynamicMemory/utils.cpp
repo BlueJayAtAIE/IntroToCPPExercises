@@ -84,12 +84,14 @@ void loveNumbers()
 	printInts(userArray, userInputArr);
 }
 
+// TODO I KNEW IT WASNT THIS SIMPLE,,,
 int* duplicateArray(int* origArray, size_t size)
 {
 	int* arr = origArray;
 	return arr;
 }
 
+// TODO this don't work.
 int* subArray(int* origArray, size_t size, size_t min, size_t max)
 {
 	int newArraySize = size - (size - max) - min;
