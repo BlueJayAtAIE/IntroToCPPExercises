@@ -6,6 +6,8 @@ struct vector2D
 	float y;
 };
 
+void printVector(vector2D vect);
+
 vector2D sum(vector2D a, vector2D b);
 
 vector2D difference(vector2D a, vector2D b);

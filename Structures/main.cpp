@@ -30,7 +30,20 @@ int main()
 
 	cout << endl;
 
+	vector2D vectA = { 4, 7 };
+	vector2D vectB = { 16, 23 };
+	vector2D sumVects = sum(vectA, vectB);
+	vector2D diffVects = difference(vectB, vectA);
+	cout << "Vector A Added to Vector B: "; printVector(sumVects); cout << " | ";
+	cout << "Vector B Minus Vector A: "; printVector(diffVects); cout << " | ";
+	cout << "Distance from Vector A to Vector B: " << distance(vectA, vectB) << endl;
 
+	cout << endl;
+
+	player* party = randomPlayers(4);
+	printPlayer(party, 4);
+
+	delete[] party;
 
 	while (true) {}
 

@@ -6,6 +6,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+void printVector(vector2D vect)
+{
+	cout << "(" << vect.x << ", " << vect.y << ")";
+}
+
 vector2D sum(vector2D a, vector2D b)
 {
 	vector2D sum = { a.x + b.x, a.y + b.y };
