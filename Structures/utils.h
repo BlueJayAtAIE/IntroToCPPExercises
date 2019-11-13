@@ -9,5 +9,5 @@ struct person
 };
 
 float getMoney(person* target, float withdrawAmt);
-
 void erasePerson(person** target);
+void jonsEvilDeeds();

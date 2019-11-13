@@ -58,15 +58,19 @@ int clamp(int lower, int upper, int val)
 
 float distance(float x1, float y1, float x2, float y2)
 {
-	// TODO
-	return 0;
+	float diffX = x1 - x2;
+	float diffY = y1 - y2;
+	return (float)sqrt(diffX * diffX + diffY * diffY);
 }
 
-float ETA(float x1, float y1, float x2, float y2, float speed)
+float estTimeToArrival(float x1, float y1, float x2, float y2, float speed)
 {
 	float seconds = 0;
-	// TODO. Finish distance, then use it here.
-	// Find distance, then from it subtract speed for as many itterations as it takes until it gets to >= 0.
-	// The "seconds" float will be set to the amount of itterations it takes to do this.
+	float dist = distance(x1, y1, x2, y2);
+	while (dist > 0)
+	{
+		dist -= speed;
+		seconds++;
+	}
 	return seconds;
 }

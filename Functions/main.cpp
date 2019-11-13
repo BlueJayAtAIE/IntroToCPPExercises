@@ -54,6 +54,16 @@ int main()
 
 	cout << endl;
 
+	cout << distance(0, 0, 0, 1) << endl;
+	cout << distance(3, 3, 4, 5) << endl;
+	cout << distance(7, 23, 9, 0) << endl;
+
+	cout << endl;
+
+	cout << estTimeToArrival(0, 0, 0, 4, 1) << endl;
+	cout << estTimeToArrival(0, 0, 0, 4, 2) << endl;
+	cout << estTimeToArrival(4, 4, 4, 8, 4) << endl;
+
 	while (true) {}
 
 	return 0;

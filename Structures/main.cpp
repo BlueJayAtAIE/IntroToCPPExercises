@@ -1,5 +1,11 @@
 #include <iostream>
 #include "utils.h"
+#include "piggybank.h"
+#include "student.h"
+#include "vector2D.h"
+#include "playerVsZombie.h"
+#include "highscore.h"
+#include "playerStatsInventory.h"
 
 using std::cout;
 using std::cin;
@@ -7,20 +13,26 @@ using std::endl;
 
 int main()
 {
-	person jon = { 26, 52.7, 22 };
+	// 4 Fives, 6 Twos, 12 Ones, 16 Quarters, 20 Dimes, 6 Nickels, 190 Pennies
+	piggyBank pig = { 4, 6, 12, 16, 20, 6, 190 };
+	cout << calcPiggyBankNotes(pig) << endl; // Should be: 44
+	cout << calcPiggyBankCoins(pig) << endl; // Should be: 8.2
+	cout << calcPiggyBankTotal(pig) << endl; // Should be: 52.2
 
-	cout << "Jon's kill-count is: " << jon.killCount << "." << endl;
+	cout << endl;
 
-	cout << "Jon's current Mun amount is: " << jon.cash << "." << endl;
-	// & gets the memory address of the variable.
-	getMoney(&jon, 100);
-	cout << "Jon's current Mun amount is: " << jon.cash << "." << endl;
+	student studentArray[3] = { {1001, 1, 32}, {1002, 2, 40}, {1003, 1, 35} };
+	//student studentTest = { 1004, 3, 42 };
+	printStudentInfo(studentArray, 3);
+	//printStudentInfo(studentTest);
+	cout << "Average exam score: " << examAverage(studentArray, 3) /*<< " | Exam median: " << examMedian(studentArray, 3)*/ << endl;
+	cout << "Students in Course 1: " << numberInCourse(studentArray, 3, 1) << " | " << "Students in Course 2: " << numberInCourse(studentArray, 3, 2) << " | " << "Students in Course 3: " << numberInCourse(studentArray, 3, 3) << endl;
 
-	person* someone = &jon;
-	erasePerson(&someone);
-	someone == nullptr ? cout << "No-one is here..." << endl : cout << "Someone is listening..." << endl;
+	cout << endl;
 
-	while (true) { }
+
+
+	while (true) {}
 
 	return 0;
 }

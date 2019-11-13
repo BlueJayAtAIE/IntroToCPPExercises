@@ -115,11 +115,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="highscore.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="piggybank.cpp" />
+    <ClCompile Include="playerStatsInventory.cpp" />
+    <ClCompile Include="playerVsZombie.cpp" />
+    <ClCompile Include="student.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="highscore.h" />
+    <ClInclude Include="piggybank.h" />
+    <ClInclude Include="playerStatsInventory.h" />
+    <ClInclude Include="playerVsZombie.h" />
+    <ClInclude Include="student.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

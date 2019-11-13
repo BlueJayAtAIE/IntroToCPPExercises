@@ -82,6 +82,8 @@ void loveNumbers()
 
 	cout << endl << "Okay, heres all those numbers again: ";
 	printInts(userArray, userInputArr);
+
+	delete[] userArray;
 }
 
 // TODO I KNEW IT WASNT THIS SIMPLE,,,
