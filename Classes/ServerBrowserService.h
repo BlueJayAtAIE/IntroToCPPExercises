@@ -27,6 +27,6 @@ public:
 
 	void changeFilterSettings(int mxResults, int limitPing, int region, bool empty, bool full);
 
-	int getServers(ServerInfo * dstArray, size_t dstSize);
+	int getServers(/*ServerInfo * dstArray, size_t dstSize*/);
 };
 

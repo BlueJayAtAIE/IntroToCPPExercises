@@ -23,8 +23,28 @@ int main()
 	cout << "Balance: " << piggy.balance() << endl;*/
 #pragma endregion
 
+	int numberServers;
+	ServerBrowserService sbs;
 
+	// RegionID, currentPlayerCount, maxPlayers, ping.
+	ServerInfo s1 = { 1, 1, 1, 1 };
+	ServerInfo s2 = { 1, 0, 1, 1 };
+	ServerInfo s3 = { 2, 2, 5, 3 };
+	ServerInfo s4 = { 3, 4, 5, 7 };
+	sbs.registerServer(s1);
+	sbs.registerServer(s2);
+	sbs.registerServer(s3);
+	sbs.registerServer(s4);
+	
+	// maxResults, pingLimit, region, allowEmpty, allowFull
+	sbs.changeFilterSettings(5, 10, 1, true, false);
+	numberServers = sbs.getServers();
 
+	sbs.changeFilterSettings(5, 5, 3, true, false);
+	numberServers = sbs.getServers();
+
+	sbs.changeFilterSettings(5, 5, 1, true, true);
+	numberServers = sbs.getServers();
 
 	while (true) {}
 	return 0;

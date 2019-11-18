@@ -23,27 +23,27 @@ void ServerBrowserService::changeFilterSettings(int mxResults, int limitPing, in
 	allowFull = full;
 }
 
-int ServerBrowserService::getServers(ServerInfo * dstArray, size_t dstSize)
+int ServerBrowserService::getServers(/*ServerInfo * dstArray, size_t dstSize*/)
 {
-	dstArray = new ServerInfo[50];
+	ServerInfo * dstArray = new ServerInfo[50];
 	int serversCopied;
 	int filterCompliant = 0;
-
-	for (serversCopied = 0; (serversCopied < serverCount && maxResults > serverCount) || (serversCopied < maxResults && maxResults <= serverCount); serversCopied++)
+	int showResultsFor = 0;
+	if (serverCount < maxResults || maxResults < 0)
 	{
-		if (servers[serversCopied].ping >= pingLimit && servers[serversCopied].regionID == regionSpecification)
+		showResultsFor = serverCount;
+	}
+	else
+	{
+		showResultsFor = maxResults;
+	}
+
+	for (serversCopied = 0; serversCopied < showResultsFor; serversCopied++)
+	{
+		if (servers[serversCopied].ping <= pingLimit && servers[serversCopied].regionID == regionSpecification && ((allowEmpty && servers[serversCopied].currentPlayerCount == 0) || servers[serversCopied].currentPlayerCount > 0) && ((allowFull && servers[serversCopied].currentPlayerCount == servers[serversCopied].maxPlayers) || servers[serversCopied].currentPlayerCount < servers[serversCopied].maxPlayers))
 		{
-			// Not yet sure how to position all these conditions in a way that includes them all in a filter.
-			// TODO: Figure out this logic.
-			if (allowEmpty && servers[serversCopied].currentPlayerCount == 0)
-			{
-
-			}
-			
-			if (allowFull && servers[serversCopied].currentPlayerCount == servers[serversCopied].maxPlayers)
-			{
-
-			}
+			dstArray[serversCopied] = servers[serversCopied];
+			filterCompliant++;
 		}
 	}
 
