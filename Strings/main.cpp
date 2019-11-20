@@ -12,6 +12,7 @@ using std::string;
 int main()
 {
 	hangman();
+	cout << endl;
 
 	string test = "Test";
 	cout << test << endl;
