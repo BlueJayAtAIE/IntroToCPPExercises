@@ -98,9 +98,9 @@ int* subArray(int* origArray, size_t size, size_t min, size_t max)
 {
 	int newArraySize = size - (size - max) - min;
 	int* arr = new int[newArraySize];
+	int j = 0;
 	for (size_t i = min; i < max; i++)
 	{
-		int j = 0;
 		arr[j] = origArray[i];
 		j++;
 	}
